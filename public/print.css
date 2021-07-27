@@ -1,0 +1,112 @@
+body {
+  padding-top: 70px;
+}
+
+.modelviewer {
+  height: 400px;
+  width: 50%;
+}
+
+.jumbotron {
+  color: #2c3e50;
+  background: rgb(241, 240, 236);
+}
+
+.form {
+  color: #2c3e50;
+  margin: 20px;
+}
+
+.navbar-fixed-top {
+  background: #2c3e50;
+  color: white;
+  font-family: "Lato";
+  font-weight: 600;
+}
+
+.print-form {
+  border-radius: 10px;
+  background: rgb(241, 240, 236);
+  font-family: "Lato";
+  font-weight: 600;
+}
+
+.queue-table {
+  border-radius: 10px;
+  background: #ecf0f1;
+  font-family: "Lato";
+  font-weight: 600;
+}
+
+.btn > a {
+  color: #2c3e50;
+  font-family: "Lato";
+}
+
+.nav > li > a {
+  color: white;
+  font-family: "Lato";
+}
+
+hr {
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 3em;
+  font-family: "Lato";
+  color: #2c3e50;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 2em;
+  font-family: "Lato";
+  color: #2c3e50;
+}
+
+span {
+  background-color: white;
+}
+
+.navbar-brand {
+  color: #0eb8e3;
+}
+
+.selected {
+  color: #2c3e50;
+  font-weight: bold;
+  text-shadow: 2px 2px rgb(200, 236, 234);
+}
+
+.btnTable {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+a {
+  color: black;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.center {
+  text-align: center;
+}
+
+.centerimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+  height: 80px;
+}
+
+#rangevalue {
+  display: inline-block;
+}

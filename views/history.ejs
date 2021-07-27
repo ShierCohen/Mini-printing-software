@@ -1,0 +1,55 @@
+<%- include('partials/head') %>
+
+  <body>
+
+    <%- include('partials/navBar') %>
+
+      <div class="container ">
+        <table class="table table-striped" id="myTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Print name</th>
+              <th scope="col">Height</th>
+              <th scope="col">Estimated time</th>
+              <th scope="col">Status</th>
+              <th scope="col"> </th> <!-- Show -->
+              <th scope="col"> </th> <!-- Reprint -->
+            </tr>
+          </thead>
+
+          <tbody id="rows">
+            <%let i=1%>
+              <% for(let job of historyJobs) {%>
+                <tr>
+                  <td scope="row">
+                    <%=i%>
+                      </th>
+                  <td>
+                    <%=job.name%>
+                  </td>
+                  <td>
+                    <%=job.height%>
+                  </td>
+                  <td>
+                    <%=job.estimatedTime%>
+                  </td>
+                  <td>
+                    <%=job.status%>
+                  </td>
+                  <td title="Show job details"><a href="/history/<%= job.jobId %>"> <i class="fa fa-arrows-alt"
+                        aria-hidden="true"></i></a></td>
+                  <td title="Reprint job">
+                    <form method="POST" action="/<%= job.jobId %>/reprintFromHistory">
+                      <button class="btnTable"><i class="fa fa-repeat" aria-hidden="true"></i></button>
+                    </form>
+                  </td>
+                </tr>
+                <%i++%>
+                  <% }%>
+          </tbody>
+        </table>
+      </div>
+  </body>
+
+  </html>

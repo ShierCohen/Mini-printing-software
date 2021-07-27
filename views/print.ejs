@@ -1,0 +1,57 @@
+<%- include('partials/head') %>
+
+<body>
+    <%- include('partials/navBar') %>
+
+    <div class="container print-form">
+        <h3>Select your model settings:</h3>
+        <form class="form" action="/queue" method="post" id="printInfo">
+            
+            <div class="form-group row">
+                <label for="inputName" class="col-sm-2 col-form-label">Project Name:</label>
+                <div class="col-sm-10">
+                 <input type="text" class="form-control" id="inputName" placeholder="Project Name.." name='projectname' required>
+                </div>              
+            </div>
+    
+            
+            <div class="form-group row">
+                <label for="customFile" class="col-sm-2 col-form-label">Select model:</label>
+                <div class="custom-file col-sm-10">
+                    <input type="file" class="custom-file-input" id="customFile" accept=".glb" name='modelfile' required>
+                </div>
+            </div>
+    
+            <div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Height:</label>
+                <div class="form-group col-sm-10">
+                    <label for="formControlRange">Select model's height:</label>
+                    <input type="range" class="form-control-range" min="1" max="180" id="formControlRange" name='modelsize' onchange="rangevalue.value=value">
+                    <output id="rangevalue" >91</output> mm
+                </div>
+            </div>
+    
+            <!--<div class="form-group row">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Color:</label>
+                <div class="form-group col-sm-10">
+                    <label for="formControlColor">Select color</label>
+                    <input type="color" class="form-control-range" id="formControlColor" name='modelcolor'>
+                </div>
+            </div> -->
+              
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary" >Print!</button>
+              </div>
+            </div>
+
+            <input type="button" class="btn btn-danger" onclick="resetForm()" value="Clear Fields">
+          </form></div>
+
+
+            
+        <script src="print2.js"></script>
+
+          
+</body>
+</html>

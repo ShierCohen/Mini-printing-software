@@ -1,0 +1,28 @@
+<%- include('partials/head') %>
+
+<body>
+    <%- include('partials/navBar') %>
+
+    
+    <div class="container">       
+        <div class="jumbotron">        
+        <% if (Job) { %> <%/* otherwise I get an error of undefind */%>
+        <h3><b>Project Name:</b> <%= Job.name %> </h3> 
+        <hr class="my-4">
+        <p><b>Status:</b> <%= Job.status %> </p>
+        <p><b>Height:</b>  <%= Job.height %> mm </p>
+        <p><b>Print time:</b>  <%= Job.estimatedTime %> seconds </p>      
+        <p><b>Job ID:</b>  <%= Job.id %>  </p>          
+        <model-viewer class="modelviewer" src="../shared-assets/models/<%=Job.modelPath%>" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer>
+        <% } %>
+        <br>
+        <button class="btn btn-default btn-lg"><a href="/queue"><i class="fa fa-angle-left" aria-hidden="true"></i>  Queue</a></button>
+      </div>
+      <b><a onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i>  Print job details</a></b>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+</body>
+
+</html>

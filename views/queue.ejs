@@ -1,0 +1,65 @@
+<%- include('partials/head') %>
+
+<body>
+    
+    <%- include('partials/navBar') %>
+   
+        <div class="container ">
+            <table class="table table-striped" id="myTable">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Print name</th>
+                    <th scope="col">Height</th>
+                    <th scope="col">Estimated time</th>
+                    <th scope="col">Remaining time</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"> </th> <!-- Delete -->
+                    <th scope="col"> </th> <!-- Show -->
+                    <th scope="col"> </th> <!-- Reprint -->
+                    <th scope="col"> </th> <!-- Edit -->
+                    <th scope="col"> </th> <!-- Resume -->
+                  </tr>
+                </thead>
+                
+                <tbody id="rows">
+                  <%let i=1%>
+                  <% for(let job of allJobs) {%>                    
+                    <tr>
+                        <td scope="row"><%=i%></th>
+                        <td><%=job.name%></td>
+                        <td><%=job.height%></td>
+                        <td><%=job.estimatedTime%></td>
+                        <td><%=Math.round(job.remaining)%></td>                        
+                        <td><%=job.status%></td>
+                        <td title="Play">
+                          <form method="POST" action="/<%= job.jobId %>/play">
+                          <button class="start btnTable"><i class="<%= job.status ==="Awaits Operator" ? "fa fa-play-circle-o": "" %>" aria-hidden="true"></i></button></form>
+                          </td>  
+
+                        <td title="Delete job">
+                          <form method="POST" action="/<%= job.jobId %>?_method=DELETE">
+                            <button class="btnTable" onclick="return confirmation()"><i class= "<%= job.status ==="Printing" ? "fa fa-ban": "fa fa-trash-o" %>" aria-hidden="true"></i></button></form>
+                        </td>                          
+                        <td title="Show job details"><a href="/<%= job.jobId %>"> <i class="fa fa-arrows-alt" aria-hidden="true"></i></a></td>
+                        <td title="Reprint job">
+                          <form method="POST" action="/<%= job.jobId %>/reprint">
+                            <button class="btnTable"><i class="fa fa-repeat" aria-hidden="true"></i></button></form>
+                        </td>
+                        <td title="Edit job"><a href="/<%= job.jobId %>/edit" class= "<%= job.status ==="In queue" ? "": "isDisabled" %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        
+                        <td title="Resume">
+                          <form method="POST" action="/<%= job.jobId %>/resume">
+                          <button class="btnTable"><i class="<%= job.status ==="Stopped" ? "fa fa-play-circle-o": "" %>" aria-hidden="true"></i></button></form>  
+                          </td>                      
+                    </tr>
+                      <%i++%>
+                      <% }%>
+                </tbody>
+              </table>
+            </div>
+    
+        <script src="print2.js"></script>
+        
+</body>
+</html>
